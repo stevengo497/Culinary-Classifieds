@@ -1,0 +1,28 @@
+{
+  "name": "Culinary-Classifieds",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stevengo497/Culinary-Classifieds.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stevengo497/Culinary-Classifieds/issues"
+  },
+  "homepage": "https://github.com/stevengo497/Culinary-Classifieds#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "ejs": "^2.5.9",
+    "express": "^4.16.3",
+    "morgan": "^1.9.0",
+    "package": "^1.0.1"
+  }
+}
