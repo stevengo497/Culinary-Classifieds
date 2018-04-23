@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 app.get('/', function (req, res){
-  res.sendFile('views/index.html', { root: __dirname})
+  res.render('index', { root: __dirname})
 });
 
 app.get('/profile', function (req, res){
