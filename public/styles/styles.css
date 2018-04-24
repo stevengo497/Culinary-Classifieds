@@ -10,7 +10,7 @@ h1 {
   width: 25%;
 }
 
-#createInput {
+.recipeCreate {
   margin-left: auto;
   margin-right: auto;
   width: 25%;

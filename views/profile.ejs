@@ -1,23 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<% include ./partials/header %>
   <title>Profile</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-  <link rel="stylesheet" href="/styles/styles.css">
-  <script src="scripts/app.js"></script>
 </head>
 <body>
   <h1><%= message %></h1>
-<form id="createInput"
+<form class="recipeCreate">
   <div class="input-group mb-3">
     <div class="input-group-prepend"></div>
-    <input type="text" placeholder="New Recipe"class="form-control" aria-label="Amount (to the nearest dollar)">
+    <input id="recipeCreateInput" type="text" placeholder="New Recipe" class="form-control">
     <div class="input-group-append"></div>
+  <button type="submit" class="btn btn-success">Create</button>
   </div>
-  <button type="button" class="btn btn-success">Create</button>
 </form>
+
+  <h3></h3>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="scripts/app.js"></script>
 </body>
 </html>

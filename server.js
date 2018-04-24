@@ -21,7 +21,11 @@ app.get('/profile', function (req, res){
   res.render('profile', {message: 'Profile page!'})
 });
 
-
+app.post('/profile', function (req, res) {
+  db.Recipe.create(req.body).then(function(newRecipe){
+    res.send(newRecipe);
+  })
+})
 
 
 
