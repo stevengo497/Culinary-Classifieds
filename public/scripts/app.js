@@ -12,8 +12,8 @@ $(document).ready(function(){
       method: "POST",
       data: recipeInput,
       success: function(response){
-        $("ul").append('<li>' + $('#recipeCreateInput').val() + '</li>');
-        // $('li').after($('#viewRecipe'));
+        ($("ul").append('<li>' + $('#recipeCreateInput').val() + '</li>')).addClass("btn btn-success");
+        $('.newBullet').append($('#viewRecipe')
         $('#recipeCreateInput').val(" ");
       }
     });

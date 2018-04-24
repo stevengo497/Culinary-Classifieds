@@ -32,3 +32,9 @@ h1 {
   list-style-type: none;
   margin-left: 30%;
 }
+
+.ingredientUl {
+  padding: 0;
+  list-style-type: none;
+  text-align: center;
+}
