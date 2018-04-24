@@ -1,20 +1,21 @@
 console.log('Up and running!')
 
+// let allRecipes = [];
+
 $(document).ready(function(){
   $('.recipeCreate').on('submit', function (event){
     event.preventDefault();
 
-    let recipeInput = $('#recipeCreateInput').val();
+    let recipeInput = {recipeName: $('#recipeCreateInput').val()};
     $.ajax({
       url: "/profile",
       method: "POST",
       data: recipeInput,
       success: function(response){
-        $("h3").append(recipeInput)
+        $("ul").append('<li>' + ($('#recipeCreateInput').val()) + '</li>');
+        // allRecipes.push(json);
+        // window.location.reload();
       }
-    })
-
-  })
-
-
+    });
+  });
 })

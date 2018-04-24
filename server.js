@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const db = require('./models');
 const app = express();
 
+
 //Middleware
 app.set('port', process.env.PORT || 3000)
 app.use(express.static('public'));
@@ -23,7 +24,7 @@ app.get('/profile', function (req, res){
 
 app.post('/profile', function (req, res) {
   db.Recipe.create(req.body).then(function(newRecipe){
-    res.send(newRecipe);
+    res.json(newRecipe);
   })
 })
 
