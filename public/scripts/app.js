@@ -13,7 +13,7 @@ $(document).ready(function(){
       data: recipeInput,
       success: function(response){
         ($("ul").append('<li>' + $('#recipeCreateInput').val() + '</li>')).addClass("btn btn-success");
-        $('.newBullet').append($('#viewRecipe')
+        $('.newBullet').append($('.btn btn-success'))
         $('#recipeCreateInput').val(" ");
       }
     });
