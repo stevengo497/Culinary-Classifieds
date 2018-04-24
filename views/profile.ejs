@@ -7,15 +7,17 @@
   <title>Profile</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
   <link rel="stylesheet" href="/styles/styles.css">
+  <script src="scripts/app.js"></script>
 </head>
 <body>
   <h1><%= message %></h1>
 <form id="createInput"
   <div class="input-group mb-3">
     <div class="input-group-prepend"></div>
-    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+    <input type="text" placeholder="New Recipe"class="form-control" aria-label="Amount (to the nearest dollar)">
     <div class="input-group-append"></div>
   </div>
+  <button type="button" class="btn btn-success">Create</button>
 </form>
 </body>
 </html>
