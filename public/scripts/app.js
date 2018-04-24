@@ -1,6 +1,6 @@
 console.log('Up and running!')
 
-// let allRecipes = [];
+
 
 $(document).ready(function(){
   $('.recipeCreate').on('submit', function (event){
@@ -13,8 +13,7 @@ $(document).ready(function(){
       data: recipeInput,
       success: function(response){
         $("ul").append('<li>' + ($('#recipeCreateInput').val()) + '</li>');
-        // allRecipes.push(json);
-        // window.location.reload();
+        $('#recipeCreateInput').val(" ");
       }
     });
   });
