@@ -1,14 +1,14 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-
+const mongoose = require('mongoose');
+const db = require('./models');
 const app = express();
 
 //Middleware
+app.set('port', process.env.PORT || 3000)
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
-
-
 
 
 
@@ -18,7 +18,7 @@ app.get('/', function (req, res){
 });
 
 app.get('/profile', function (req, res){
-  res.render('profile', {message: 'EJS works!'})
+  res.render('profile', {message: 'Profile page!'})
 });
 
 
@@ -30,6 +30,7 @@ app.get('/profile', function (req, res){
 
 
 //set up port to listen
-app.listen(process.env.port || 3000, function(){
-  console.log('ready for your command!')
-});
+
+app.listen(app.get('port'), () => {
+  console.log(`✅ PORT: ${app.get('port')} 🌟`)
+})
