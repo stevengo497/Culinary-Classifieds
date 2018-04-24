@@ -32,9 +32,10 @@ $(document).ready(function(){
       method: "POST",
       data: ingredientInput,
       success: function(response){
-        console.log('working!')
-        // $("ul").append('<li>' + $('#ingredientCreateInput').val() + '</li>');
-        // $('#ingredientCreateInput').val(" ");
+        // console.log('working!') // working
+        $("ul").append('<li>' + $('#ingredientCreateInput').val() + ":" + " " + $('#amountCreateInput').val() + '</li>');
+        $('#ingredientCreateInput').val(" ");
+        $('#amountCreateInput').val(" ");
       }
     })
   })
