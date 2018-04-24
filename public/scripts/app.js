@@ -12,7 +12,8 @@ $(document).ready(function(){
       method: "POST",
       data: recipeInput,
       success: function(response){
-        $("ul").append('<li>' + ($('#recipeCreateInput').val()) + '</li>');
+        $("ul").append('<li>' + $('#recipeCreateInput').val() + '</li>');
+        // $('li').after($('#viewRecipe'));
         $('#recipeCreateInput').val(" ");
       }
     });

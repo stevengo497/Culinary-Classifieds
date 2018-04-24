@@ -28,6 +28,13 @@ app.post('/profile', function (req, res) {
   })
 })
 
+app.get('/profile/ingredient', function (req, res){
+  // db.Ingredient.create(req.body).then(function(newIngredient){
+  // res.json(newIngredient)
+    res.render('ingredient', {message: 'ingredient page!'})
+  });
+
+
 
 
 

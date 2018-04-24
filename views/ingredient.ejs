@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<% include ./partials/header %>
+  <title>Ingredient</title>
+</head>
+<body>
+  <%= message %>
+  <form class="ingredientCreate">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend"></div>
+      <input id="ingredientCreateInput" type="text" placeholder="Ingredient" class="form-control">
+      <div class="input-group-append"></div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend"></div>
+      <input id="amountCreateInput" type="text" placeholder="Amount (ex: 2 cups)" class="form-control">
+      <div class="input-group-append"></div>
+    </div>
+    <button id="addIngredientBtn" type="submit" class="btn btn-success">Add Ingredient</button>
+    </div>
+  </form>
+</body>
+</html>

@@ -16,6 +16,17 @@ h1 {
   width: 25%;
 }
 
+.ingredientCreate {
+  margin-left: auto;
+  margin-right: auto;
+  width: 25%;
+}
+
+#addIngredientBtn{
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .profileUl {
   padding: 0;
   list-style-type: none;

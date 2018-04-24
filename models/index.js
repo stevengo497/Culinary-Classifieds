@@ -8,3 +8,4 @@ if (process.env.NODE_ENV == "production") {
 }
 
 module.exports.Recipe = require('./recipe.js');
+module.exports.Ingredient = require('./ingredient.js');
