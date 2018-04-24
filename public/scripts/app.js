@@ -19,3 +19,22 @@ $(document).ready(function(){
     });
   });
 })
+  $('.ingredientCreate').on("submit", function (event){
+    event.preventDefault();
+
+    let ingredientInput = {
+      ingredient: $('#ingredientCreateInput').val(),
+      amount: $('#amountCreateInput').val()
+    }
+
+    $.ajax({
+      url: "/profile/ingredient",
+      method: "POST",
+      data: ingredientInput,
+      success: function(response){
+        console.log('working!')
+        // $("ul").append('<li>' + $('#ingredientCreateInput').val() + '</li>');
+        // $('#ingredientCreateInput').val(" ");
+      }
+    })
+  })
