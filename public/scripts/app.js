@@ -12,9 +12,9 @@ $(document).ready(function(){
       method: "POST",
       data: recipeInput,
       success: function(response){
-        ($("ul").append('<li>' + $('#recipeCreateInput').val() + '</li>')).addClass("btn btn-success");
-        $('.newBullet').append($('.btn btn-success'))
-        $('#recipeCreateInput').val(" ");
+
+        ($("ul").append('<li>' + $('#recipeCreateInput').val() + '<button class="btn btn-success">View Recipe</button>' + '</li>'))
+        $('#recipeCreateInput').val("");
       }
     });
   });
