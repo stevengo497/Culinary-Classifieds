@@ -33,9 +33,11 @@ $(document).ready(function(){
       data: ingredientInput,
       success: function(response){
         // console.log('working!') // working
-        $("ul").append('<li>' + $('#ingredientCreateInput').val() + " - " + $('#amountCreateInput').val() + '<button type="button" class="float-right btn btn-success btn-sm">Update</button>' + '</li>');
+        $("ul").append('<li>' + $('#ingredientCreateInput').val() + " - " + $('#amountCreateInput').val() + '<button id="updateBtn" type="button" class="float-right btn btn-success btn-sm" data-toggle="modal" data-target="#exampleModal">Update</button>' + '</li>');
         $('#ingredientCreateInput').val(" ");
         $('#amountCreateInput').val(" ");
       }
     })
   })
+
+  // $('#exampleModal').modal(focus)
