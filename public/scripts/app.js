@@ -12,13 +12,13 @@ $(document).ready(function(){
       method: "POST",
       data: recipeInput,
       success: function(response){
-
-        ($("ul").append('<li>' + $('#recipeCreateInput').val() + '<button class="btn btn-success">View Recipe</button>' + '</li>'))
+        ($("ul").append('<li>' + $('#recipeCreateInput').val() + '<button type="button" class="float-right btn btn-success btn-sm">View Recipe</button>' + '</li>'))
         $('#recipeCreateInput').val("");
       }
     });
   });
 })
+
   $('.ingredientCreate').on("submit", function (event){
     event.preventDefault();
 
@@ -33,7 +33,7 @@ $(document).ready(function(){
       data: ingredientInput,
       success: function(response){
         // console.log('working!') // working
-        $("ul").append('<li>' + $('#ingredientCreateInput').val() + ":" + " " + $('#amountCreateInput').val() + '</li>');
+        $("ul").append('<li>' + $('#ingredientCreateInput').val() + " - " + $('#amountCreateInput').val() + '<button type="button" class="float-right btn btn-success btn-sm">Update</button>' + '</li>');
         $('#ingredientCreateInput').val(" ");
         $('#amountCreateInput').val(" ");
       }
