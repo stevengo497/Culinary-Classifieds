@@ -60,8 +60,11 @@ function ingredientListener (){
       method: "GET",
       // data: $(this)[0].id could also do it this way
       success: function(response){
-        console.log(response)
+        // for (let i = 0; i < response.length; i++) {
+        //   console.log(response[i])
+        $('.modal-body').append('<p>' + response.ingredient + " - " + response.amount + '</p>')
         // create form on the fly, 3 inputs in form - ingredient name, amount, hidden input w/ the ingredient id as value - then append to modal
+        // }
       }
     })
   })
