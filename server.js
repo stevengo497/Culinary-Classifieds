@@ -42,6 +42,12 @@ app.post('/profile/ingredient', function (req, res){
   })
 })
 
+app.get('/profile/ingredient/:id', function (req, res){
+  db.Ingredient.findOne({_id: req.params.id}, function(err, oneIngredient) {
+    res.json(oneIngredient)
+  })
+});
+
 // app.put('/profile/ingredient/:id', function (req, res){
 //   db.Ingredient.findByIdAndUpdate({_id:req.params.id}, req.body).then(function(newIngredient){
 //   res.json(newIngredient);

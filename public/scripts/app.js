@@ -29,11 +29,13 @@ $(document).ready(function(){
     $.ajax({
       url: "/profile/ingredient",
       method: "POST",
-      data: ingredientInput,
+      data: ingredientInput, //res.body
       success: function(response){
-        $("ul").append('<li>' + $('#ingredientCreateInput').val() + " - " + $('#amountCreateInput').val() + '<button type="button" class="float-right btn btn-success btn-sm" data-toggle="modal" data-target="#exampleModal">Update</button>' + '</li>');
+        $("ul").append('<li>' + $('#ingredientCreateInput').val() + " - " + $('#amountCreateInput').val() + '<button type="button" id="' + response._id + '" class="ingredientClassBtn float-right btn btn-success btn-sm" data-toggle="modal" data-target="#exampleModal">Update</button>' + '</li>');
         $('#ingredientCreateInput').val(" ");
         $('#amountCreateInput').val(" ");
+        console.log(response)
+        ingredientListener();
       }
     })
   })
@@ -44,10 +46,34 @@ $('#deleteBtn').on("click", function(e){
   $.ajax({
     url: "/profile/ingredient/:id",
     method: "DELETE",
-    success: console.log('gone')
+    // success: console.log('gone')
     })
   })
 })
+
+function ingredientListener (){
+  $('.ingredientClassBtn').on("click", function(e){
+    e.preventDefault();
+    // console.log($(this)[0].id) // this gets the specific id from the button click
+    $.ajax({
+      url: "/profile/ingredient/"+$(this)[0].id, //req.params
+      method: "GET",
+      // data: $(this)[0].id could also do it this way
+      success: function(response){
+        console.log(response)
+        // create form on the fly, 3 inputs in form - ingredient name, amount, hidden input w/ the ingredient id as value - then append to modal
+      }
+    })
+  })
+}
+
+ingredientListener();
+
+
+
+//creating controller to findOne ingredient
+//create AJAX call that will hit the controller
+
 
 //link specific update button per ingredient and link to end of URL on ajax call
 //HTML data attributes
@@ -58,15 +84,6 @@ $('#deleteBtn').on("click", function(e){
 
 //serialize not ness if you use val() but needed if using whole form
 
-  // $('#saveChangesBtn').on("click", function (event){
-  //   event.preventDefault();
-  //
-  //   $.ajax({
-  //     url: "/profile/ingredient/:id",
-  //     method: "PUT",
-  //     success: console.log('It actually worked')
-  //   })
-  // })
 
 
 
