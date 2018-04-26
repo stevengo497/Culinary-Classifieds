@@ -47,7 +47,7 @@ $('#deleteBtn').on("click", function(e){
     url: "/profile/ingredient/"+$('#deleteBtn').data('ingredientId'),
     method: "DELETE",
     success: function(response){
-    console.log(response)
+    window.location.reload();
 
     // success: console.log('gone')
     }
