@@ -49,25 +49,21 @@ app.get('/profile/ingredient/:id', function (req, res){
 });
 
 
-// app.put('/profile/ingredient/:id', function (req, res){
-//   db.Ingredient.findByIdAndUpdate({_id:req.params.id}, req.body).then(function(newIngredient){
-//   res.json(newIngredient);
-//   })
-// })
-
-// app.get('/profile/ingredient/:id', function (req, res){
-//     res.render('ingredient', {message: req.params.id})
-//   });
-
-app.delete("/profile/ingredient/:id", function(req, res){
-  db.Ingredient.findByIdAndRemove({_id: req.params.id}, function(err, deleteIngredient) {
-    let goneIngredient = req.params.id;
-    res.json(goneIngredient)
-    });
+app.delete('/profile/ingredient/:id', function (req, res){
+  console.log("id" + req.params.id)
+  db.Ingredient.findOneAndRemove({_id: req.params.id}, function(err, goneIngredient) {
+    console.log(goneIngredient)
+    res.json(req.params.id)
+  })
 });
 
 
-
+// app.delete("/profile/ingredient/:id", function(req, res){
+//   db.Ingredient.findByIdAndRemove({_id: req.params.id}, function(err, deleteIngredient) {
+//     let goneIngredient = req.params.id;
+//     res.json(goneIngredient)
+//     });
+// });
 
 
 //set up port to listen

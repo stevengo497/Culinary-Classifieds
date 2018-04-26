@@ -44,9 +44,13 @@ $('#deleteBtn').on("click", function(e){
   e.preventDefault();
 
   $.ajax({
-    url: "/profile/ingredient/:id",
+    url: "/profile/ingredient/"+$(this)[0].id,
     method: "DELETE",
+    success: function(response){
+    console.log(response)
+
     // success: console.log('gone')
+    }
     })
   })
 })
@@ -54,16 +58,16 @@ $('#deleteBtn').on("click", function(e){
 function ingredientListener (){
   $('.ingredientClassBtn').on("click", function(e){
     e.preventDefault();
+    $('#deleteBtn').data('ingredientId', $(this)[0].id)
+
     // console.log($(this)[0].id) // this gets the specific id from the button click
     $.ajax({
       url: "/profile/ingredient/"+$(this)[0].id, //req.params
       method: "GET",
       // data: $(this)[0].id could also do it this way
       success: function(response){
-        // for (let i = 0; i < response.length; i++) {
-        //   console.log(response[i])
-        $('.modal-title').append(":" + " " + response.ingredient + " - " + response.amount)
-        $('.modal-body').append('<form class="input" action="/profile/ingredient/"+$(this)[0].id" method="post">Ingredient:<input type="text"> <br><br> Amount:<input type="text"></form>')
+        $('.modal-title').empty().append("Update: " + response.ingredient + " - " + response.amount)
+        $('.modal-body').empty().append('<form class="input" action="/profile/ingredient/"+$(this)[0].id" method="post">Ingredient: <input type="text" class="updateBox"> <br><br> Amount: <input type="text" class="updateBox"></form>')
         // create form on the fly, 3 inputs in form - ingredient name, amount, hidden input w/ the ingredient id as value - then append to modal
         // }
       }
@@ -72,6 +76,10 @@ function ingredientListener (){
 }
 
 ingredientListener();
+
+
+//delete button now has ID - need to link Ajax
+
 
 
 
