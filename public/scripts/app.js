@@ -44,7 +44,7 @@ $('#deleteBtn').on("click", function(e){
   e.preventDefault();
 
   $.ajax({
-    url: "/profile/ingredient/"+$(this)[0].id,
+    url: "/profile/ingredient/"+$('#deleteBtn').data('ingredientId'),
     method: "DELETE",
     success: function(response){
     console.log(response)
