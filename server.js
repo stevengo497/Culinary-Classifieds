@@ -19,7 +19,9 @@ app.get('/', function (req, res){
 });
 
 app.get('/profile', function (req, res){
-  res.render('profile', {message: 'Profile page!'})
+  db.Recipe.find(function(err, recipeList) {
+    res.render('profile', {recipes: recipeList})
+  })
 });
 
 app.post('/profile', function (req, res) {
@@ -29,16 +31,33 @@ app.post('/profile', function (req, res) {
 })
 
 app.get('/profile/ingredient', function (req, res){
-    res.render('ingredient', {message: 'ingredient page!'})
-  });
+  db.Ingredient.find(function(err, ingredientList){
+  res.render('ingredient', {ingredients: ingredientList})
+  })
+});
 
 app.post('/profile/ingredient', function (req, res){
   db.Ingredient.create(req.body).then(function(newIngredient){
-  res.json(newIngredient);
-
+    res.json(newIngredient);
   })
 })
 
+// app.put('/profile/ingredient/:id', function (req, res){
+//   db.Ingredient.findByIdAndUpdate({_id:req.params.id}, req.body).then(function(newIngredient){
+//   res.json(newIngredient);
+//   })
+// })
+
+// app.get('/profile/ingredient/:id', function (req, res){
+//     res.render('ingredient', {message: req.params.id})
+//   });
+
+app.delete("/profile/ingredient/:id", function(req, res){
+  db.Ingredient.findByIdAndRemove({_id: req.params.id}, function(err, deleteIngredient) {
+    let goneIngredient = req.params.id;
+    res.json(goneIngredient)
+    });
+});
 
 
 
