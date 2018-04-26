@@ -48,6 +48,7 @@ app.get('/profile/ingredient/:id', function (req, res){
   })
 });
 
+
 // app.put('/profile/ingredient/:id', function (req, res){
 //   db.Ingredient.findByIdAndUpdate({_id:req.params.id}, req.body).then(function(newIngredient){
 //   res.json(newIngredient);

@@ -62,7 +62,8 @@ function ingredientListener (){
       success: function(response){
         // for (let i = 0; i < response.length; i++) {
         //   console.log(response[i])
-        $('.modal-body').append('<p>' + response.ingredient + " - " + response.amount + '</p>')
+        $('.modal-title').append(":" + " " + response.ingredient + " - " + response.amount)
+        $('.modal-body').append('<form class="input" action="/profile/ingredient/"+$(this)[0].id" method="post">Ingredient:<input type="text"> <br><br> Amount:<input type="text"></form>')
         // create form on the fly, 3 inputs in form - ingredient name, amount, hidden input w/ the ingredient id as value - then append to modal
         // }
       }
