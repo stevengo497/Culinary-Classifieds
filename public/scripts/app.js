@@ -5,18 +5,32 @@ console.log('Up and running!')
 $(document).ready(function(){
   $('.recipeCreate').on('submit', function (event){
     event.preventDefault();
-
     let recipeInput = {recipeName: $('#recipeCreateInput').val()};
     $.ajax({
       url: "/profile",
       method: "POST",
       data: recipeInput,
       success: function(response){
-        ($("ul").append("<li>" + ($('#recipeCreateInput').val() + '<button type="button" class="float-right btn btn-success btn-sm">View Recipe</button>') + "</li>"))
+        ($("ul").append("<li>" + ($('#recipeCreateInput').val() + '<a href="/ingredients/' + response._id + '"><button id="' + response._id + '" type="button" class="float-right btn btn-success btn-sm">View Recipe</button></a>') + "</li>"))
         $('#recipeCreateInput').val("");
+        console.log($(this))
+        // $('#viewRecipeBtn').data('viewRecipeId', response._id)
+//h ref = path+response_id - this will set the link
       }
     });
   });
+//View Recipe Button needs to link to profile/ingredient
+  $('viewRecipeBtn').on("click", function(e){
+    console.log('hello')
+    e.preventDefault();
+    $.ajax({
+      url: "/profile",
+      method: "GET",
+      success: function(response){
+        // console.log(response)
+      }
+    })
+  })
 
 //CREATE NEW INGREDIENT
   $('.ingredientCreate').on("submit", function (event){

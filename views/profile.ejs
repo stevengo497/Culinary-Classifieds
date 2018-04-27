@@ -17,7 +17,7 @@
 
   <ul class="profileUl">
     <% for (let i = 0; i < recipes.length; i++) { %>
-    <li><%=recipes[i].recipeName%><button type="button" class="float-right btn btn-success btn-sm">View Recipe</button></li>
+    <li><%=recipes[i].recipeName%><a href="/ingredients/<%=recipes[i]._id%>"><button type="button" class="float-right btn btn-success btn-sm">View Recipe</button></a></li>
   <% } %>
   </ul>
 <% include ./partials/footer %>

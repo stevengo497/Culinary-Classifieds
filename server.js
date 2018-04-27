@@ -30,6 +30,13 @@ app.post('/profile', function (req, res) {
   })
 })
 
+// app.get('/profile/:id', function (req, res){
+//   db.Recipe.findOne({_id: req.params.id}, function(err, newRecipeId){
+//     res.json(newRecipeId)
+//     console.log(req.params.id)
+//   });
+// });
+
 app.get('/profile/ingredient', function (req, res){
   db.Ingredient.find(function(err, ingredientList){
   res.render('ingredient', {ingredients: ingredientList})
