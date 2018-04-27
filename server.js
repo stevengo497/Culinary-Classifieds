@@ -58,8 +58,8 @@ app.delete('/profile/ingredient/:id', function (req, res){
 
 app.put('/profile/ingredient/:id', function (req, res) {
   console.log(req.body)
-  db.Ingredient.findByIdAndUpdate(req.params.id, req.body, function(err, modelForm){
-    res.json(modelForm)
+  db.Ingredient.findByIdAndUpdate(req.params.id, req.body, function(err, updatedIngredient){
+    res.json(updatedIngredient)
   })
 })
 

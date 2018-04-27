@@ -15,6 +15,10 @@ li {
   padding: 5px 0;
 }
 
+label {
+  margin-left: 45%;
+}
+
 .updateBox {
   border: 2px solid #7E914F;
   border-radius: 5px;
@@ -28,6 +32,19 @@ li {
   background-size: cover;
 }
 
+#deleteRecipeBtn {
+  position: relative;
+  margin-left: 46%;
+}
+
+#cookingForm {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  height: 200px;
+  margin-bottom: 50px;
+}
 #loginForm {
   display: block;
   text-align: center;
@@ -55,7 +72,7 @@ li {
 }
 
 .float-right {
-  margin-right: 40%;
+  margin-right: 45%;
 }
 
 

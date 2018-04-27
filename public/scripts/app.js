@@ -98,8 +98,18 @@ ingredientListener();
     })
   })
 
+  ///DELETE RECIPE button
+
+  $('#deleteRecipeBtn').on("click", function(e){
+    e.preventDefault();
+
+  })
+
 })
-// need to collect data from input boxes in form in Modal
-//PUT ajax call
-//link save changes button and make sure it works (console.log)
-//needs to update in the DOM and Database
+
+///when click on view recipe, goes to ingredient page
+//delete button will clear recipe ID on profile page and that will make
+//ingredient page null and void, will have to auto redirect back to recipe page and
+//everything will disappear
+// also try to add a "are you sure?" box, if button yes is clicked then proceed,
+// make sure order of events is right.
