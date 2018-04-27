@@ -18,6 +18,7 @@ $(document).ready(function(){
     });
   });
 
+//CREATE NEW INGREDIENT
   $('.ingredientCreate').on("submit", function (event){
     event.preventDefault();
 
@@ -40,11 +41,12 @@ $(document).ready(function(){
     })
   })
 
+// DELETE Ingredient
 $('#deleteBtn').on("click", function(e){
   e.preventDefault();
 
   $.ajax({
-    url: "/profile/ingredient/"+$('#deleteBtn').data('ingredientId'),
+    url: "/profile/ingredient/"+$('#deleteBtn').data('ingredientId'), /// ends with object Id given on line 61
     method: "DELETE",
     success: function(response){
     window.location.reload();
@@ -53,13 +55,15 @@ $('#deleteBtn').on("click", function(e){
     }
     })
   })
-})
 
+
+
+//UPDATE INGREDIENT BUTTON - Delete button works here
 function ingredientListener (){
   $('.ingredientClassBtn').on("click", function(e){
     e.preventDefault();
-    $('#deleteBtn').data('ingredientId', $(this)[0].id)
-
+    $('#deleteBtn').data('ingredientId', $(this)[0].id) // once the update button clicked, we add to the delete button the object ID
+    $('#saveChangesBtn').data('saveChangesId', $(this)[0].id)
     // console.log($(this)[0].id) // this gets the specific id from the button click
     $.ajax({
       url: "/profile/ingredient/"+$(this)[0].id, //req.params
@@ -67,43 +71,35 @@ function ingredientListener (){
       // data: $(this)[0].id could also do it this way
       success: function(response){
         $('.modal-title').empty().append("Update: " + response.ingredient + " - " + response.amount)
-        $('.modal-body').empty().append('<form class="input" action="/profile/ingredient/"+$(this)[0].id" method="post">Ingredient: <input type="text" class="updateBox"> <br><br> Amount: <input type="text" class="updateBox"></form>')
+        $('.modal-body').empty().append('<form id="inputForm" class="input" action="/profile/ingredient/"+$(this)[0].id" method="post">Ingredient: <input type="text" class="updateBox1"> <br><br> Amount: <input type="text" class="updateBox2"></form>')
         // create form on the fly, 3 inputs in form - ingredient name, amount, hidden input w/ the ingredient id as value - then append to modal
-        // }
       }
     })
   })
 }
-
 ingredientListener();
 
 
-//delete button now has ID - need to link Ajax
+///UPDATE ACTUAL INGREDIENT
+  $('#saveChangesBtn').on("click", function(e){
+    e.preventDefault();
+    let ingredient = $('.updateBox1').val();
+    let amount = $('.updateBox2').val();
+    $.ajax({
+      url: "/profile/ingredient/"+$('#saveChangesBtn').data('saveChangesId'),
+      method: "PUT",
+      data: {
+        ingredient,
+        amount
+      },
+      success: function(response){
+        window.location.reload();
+      }
+    })
+  })
 
-
-
-
-//creating controller to findOne ingredient
-//create AJAX call that will hit the controller
-
-
-//link specific update button per ingredient and link to end of URL on ajax call
-//HTML data attributes
-
-
-
-//url needs to have specific value of resource to delete
-
-//serialize not ness if you use val() but needed if using whole form
-
-
-
-
-
-/*Update button needs to link to modal when clicked
-grab recipeCreateInput value and ingredientCreateInput value and show on modal body
-allow updates and link to _id
-Save changes button and append new things to DOM
-
-
-*/
+})
+// need to collect data from input boxes in form in Modal
+//PUT ajax call
+//link save changes button and make sure it works (console.log)
+//needs to update in the DOM and Database

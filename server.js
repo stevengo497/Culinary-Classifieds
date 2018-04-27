@@ -50,21 +50,18 @@ app.get('/profile/ingredient/:id', function (req, res){
 
 
 app.delete('/profile/ingredient/:id', function (req, res){
-  console.log("id" + req.params.id)
   db.Ingredient.findOneAndRemove({_id: req.params.id}, function(err, goneIngredient) {
-    console.log(goneIngredient)
     res.json(req.params.id)
   })
 });
 
 
-// app.delete("/profile/ingredient/:id", function(req, res){
-//   db.Ingredient.findByIdAndRemove({_id: req.params.id}, function(err, deleteIngredient) {
-//     let goneIngredient = req.params.id;
-//     res.json(goneIngredient)
-//     });
-// });
-
+app.put('/profile/ingredient/:id', function (req, res) {
+  console.log(req.body)
+  db.Ingredient.findByIdAndUpdate(req.params.id, req.body, function(err, modelForm){
+    res.json(modelForm)
+  })
+})
 
 //set up port to listen
 
