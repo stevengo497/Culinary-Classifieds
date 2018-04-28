@@ -11,7 +11,7 @@ $(document).ready(function(){
       method: "POST",
       data: recipeInput,
       success: function(response){
-        ($("ul").append("<li>" + ($('#recipeCreateInput').val() + '<a href="/ingredients/' + response._id + '"><button id="' + response._id + '" type="button" class="float-right btn btn-success btn-sm">View Recipe</button></a>') + "</li>"))
+        ($("ul").append("<li>" + ($('#recipeCreateInput').val() + '<a href="profile/ingredient/' + response._id + '"><button id="' + response._id + '" type="button" class="float-right btn btn-success btn-sm">View Recipe</button></a>') + "</li>"))
         $('#recipeCreateInput').val("");
         console.log($(this))
         // $('#viewRecipeBtn').data('viewRecipeId', response._id)
