@@ -14,23 +14,10 @@ $(document).ready(function(){
         ($("ul").append("<li>" + ($('#recipeCreateInput').val() + '<a href="profile/ingredient/' + response._id + '"><button id="' + response._id + '" type="button" class="float-right btn btn-success btn-sm">View Recipe</button></a>') + "</li>"))
         $('#recipeCreateInput').val("");
         console.log(response._id)
-        // $('#viewRecipeBtn').data('viewRecipeId', response._id)
-//h ref = path+response_id - this will set the link
+
       }
     });
   });
-//View Recipe Button needs to link to profile/ingredient
-  // $('.viewRecipeBtn').on("click", function(e){
-  //   console.log('hello')
-  //   e.preventDefault();
-  //   $.ajax({
-  //     url: "/profile",
-  //     method: "GET",
-  //     success: function(response){
-  //       // console.log(response)
-  //     }
-  //   })
-  // })
 
 //CREATE NEW INGREDIENT
   $('.ingredientCreate').on("submit", function (event){
@@ -38,7 +25,8 @@ $(document).ready(function(){
 
     let ingredientInput = {
       ingredient: $('#ingredientCreateInput').val(),
-      amount: $('#amountCreateInput').val()
+      amount: $('#amountCreateInput').val(),
+      recipe_id: $('#recipeIdHidden').val()
     }
 
     $.ajax({
