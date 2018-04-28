@@ -32,11 +32,11 @@ app.post('/profile', function (req, res) {
 
 
 
-app.get('/profile/ingredient', function (req, res){
-  db.Ingredient.find(function(err, ingredientList){
-  res.render('ingredient', {ingredients: ingredientList})
-  })
-});
+// app.get('/profile/ingredient', function (req, res){
+//   db.Ingredient.find(function(err, ingredientList){
+//   res.render('ingredient', {ingredients: ingredientList})
+//   })
+// });
 
 app.post('/profile/ingredient', function (req, res){
   db.Ingredient.create(req.body).then(function(newIngredient){
@@ -46,7 +46,7 @@ app.post('/profile/ingredient', function (req, res){
 
 app.get('/profile/ingredient/:id', function (req, res){
   db.Ingredient.findOne({_id: req.params.id}, function(err, oneIngredient) {
-    res.json(oneIngredient)
+    res.render('ingredient', {ingredients: []})
   })
 });
 

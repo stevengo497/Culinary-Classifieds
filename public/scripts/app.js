@@ -13,24 +13,24 @@ $(document).ready(function(){
       success: function(response){
         ($("ul").append("<li>" + ($('#recipeCreateInput').val() + '<a href="profile/ingredient/' + response._id + '"><button id="' + response._id + '" type="button" class="float-right btn btn-success btn-sm">View Recipe</button></a>') + "</li>"))
         $('#recipeCreateInput').val("");
-        console.log($(this))
+        console.log(response._id)
         // $('#viewRecipeBtn').data('viewRecipeId', response._id)
 //h ref = path+response_id - this will set the link
       }
     });
   });
 //View Recipe Button needs to link to profile/ingredient
-  $('viewRecipeBtn').on("click", function(e){
-    console.log('hello')
-    e.preventDefault();
-    $.ajax({
-      url: "/profile",
-      method: "GET",
-      success: function(response){
-        // console.log(response)
-      }
-    })
-  })
+  // $('.viewRecipeBtn').on("click", function(e){
+  //   console.log('hello')
+  //   e.preventDefault();
+  //   $.ajax({
+  //     url: "/profile",
+  //     method: "GET",
+  //     success: function(response){
+  //       // console.log(response)
+  //     }
+  //   })
+  // })
 
 //CREATE NEW INGREDIENT
   $('.ingredientCreate').on("submit", function (event){
@@ -49,7 +49,7 @@ $(document).ready(function(){
         $("ul").append('<li>' + $('#ingredientCreateInput').val() + " - " + $('#amountCreateInput').val() + '<button type="button" id="' + response._id + '" class="ingredientClassBtn float-right btn btn-success btn-sm" data-toggle="modal" data-target="#exampleModal">Update</button>' + '</li>');
         $('#ingredientCreateInput').val(" ");
         $('#amountCreateInput').val(" ");
-        console.log(response)
+        // console.log(response)
         ingredientListener();
       }
     })
@@ -75,6 +75,7 @@ $('#deleteBtn').on("click", function(e){
 //UPDATE INGREDIENT BUTTON - Delete button works here
 function ingredientListener (){
   $('.ingredientClassBtn').on("click", function(e){
+    console.log($(this))
     e.preventDefault();
     $('#deleteBtn').data('ingredientId', $(this)[0].id) // once the update button clicked, we add to the delete button the object ID
     $('#saveChangesBtn').data('saveChangesId', $(this)[0].id)
@@ -84,8 +85,9 @@ function ingredientListener (){
       method: "GET",
       // data: $(this)[0].id could also do it this way
       success: function(response){
+        // console.log(response)
         $('.modal-title').empty().append("Update: " + response.ingredient + " - " + response.amount)
-        $('.modal-body').empty().append('<form id="inputForm" class="input" action="/profile/ingredient/"+$(this)[0].id" method="post">Ingredient: <input type="text" class="updateBox1"> <br><br> Amount: <input type="text" class="updateBox2"></form>')
+        $('.modal-body').empty().append('<form id="inputForm" class="input">Ingredient: <input type="text" class="updateBox1"> <br><br> Amount: <input type="text" class="updateBox2"></form>')
         // create form on the fly, 3 inputs in form - ingredient name, amount, hidden input w/ the ingredient id as value - then append to modal
       }
     })
