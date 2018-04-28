@@ -44,6 +44,7 @@ app.post('/profile/ingredient', function (req, res){
   })
 })
 
+
 app.get('/profile/ingredient/:id', function (req, res){
   db.Ingredient.findOne({_id: req.params.id}, function(err, oneIngredient) {
     res.render('ingredient', {ingredients: []})
