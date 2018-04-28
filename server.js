@@ -58,6 +58,12 @@ app.delete('/profile/ingredient/:id', function (req, res){
   })
 });
 
+app.delete('/profile/:id', function (req, res){
+  db.Recipe.findOneAndRemove({_id: req.params.id}, function(err, goneRecipe) {
+    res.json(req.params.id)
+  })
+});
+
 
 app.put('/profile/ingredient/:id', function (req, res) {
   console.log(req.body)

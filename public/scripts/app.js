@@ -48,7 +48,7 @@ $('#deleteBtn').on("click", function(e){
   e.preventDefault();
 
   $.ajax({
-    url: "/profile/ingredient/"+$('#deleteBtn').data('ingredientId'), /// ends with object Id given on line 61
+    url: "/profile/ingredient/"+$('#deleteBtn').data('ingredientId'), /// ends with object Id given on line 68
     method: "DELETE",
     success: function(response){
     window.location.reload();
@@ -104,8 +104,17 @@ ingredientListener();
 
   ///DELETE RECIPE button
 
-  $('#deleteRecipeBtn').on("click", function(e){
+  $('.deleteRecipeBtn').on("click", function(e){
     e.preventDefault();
+    console.log($(this)[0].id)
+
+    $.ajax({
+      url: "/profile/"+$(this)[0].id, // right now this is for Update id, need to change to recipe ID (same as url)
+      method: "DELETE",
+      success: function(){
+        window.location.href = "/profile";
+      }
+    })
 
   })
 
