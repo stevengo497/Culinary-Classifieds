@@ -11,13 +11,14 @@
   <form id="signup-form">
   <div class="form-group">
     <label for="exampleInputEmail1"><span>Email address</span></label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+    <input id="email-input" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1"><span>Password</span></label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    <input id="pw-input" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
   </div>
-  <button id="submitBtn" type="submit" class="btn btn-primary">Submit</button>
+  <button id="signUpBtn" type="submit" class="btn btn-primary">Sign Up</button>
+  <a href="/login">Login</a>
 </form>
 <% include ./partials/footer %>
 </body>

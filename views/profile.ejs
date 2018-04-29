@@ -20,6 +20,8 @@
     <li><%=recipes[i].recipeName%><a href="profile/ingredient/<%=recipes[i]._id%>"><button id="<%=recipes[i]._id%>" type="button" class="float-right btn btn-success btn-sm">View Recipe</button></a></li>
   <% } %>
   </ul>
+
+  <a id="logout" href="/logout" class="btn btn-default">Log Out</a>
 <% include ./partials/footer %>
 </body>
 </html>
