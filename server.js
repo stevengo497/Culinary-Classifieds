@@ -38,8 +38,8 @@ app.post("/signup", function(req, res){
 });
 //*** changed from user - maybe needs to change to profile?
 app.get("/user", function(req, res){
-	User.findOne({_id : req.session.userId}, function(err, userRecipes){
-		res.render('profile', {recipes : userRecipes})
+	User.findOne({_id : req.session.userId}, function(err, currentUser){
+		res.render('profile', {user : currentUser})
 	})
 })
 //****changed from sessions
