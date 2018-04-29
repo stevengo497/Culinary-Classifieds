@@ -22,8 +22,15 @@ li {
 }
 
 #profileBackground {
-  background-image: url("/images/risotto.jpeg");
-  height: 500px;
+  background-image: url("/images/profile.jpg");
+  height: 250px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#ingredientBackground {
+  background-image: url("/images/eggs.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -81,13 +88,14 @@ li {
   margin-left: auto;
   margin-right: auto;
   width: 25%;
-  margin-top: 10%;
+  margin-top: 5%;
 }
 
 .ingredientCreate {
   margin-left: auto;
   margin-right: auto;
   width: 20%;
+  margin-top: 5%;
 }
 
 #addIngredientBtn{
