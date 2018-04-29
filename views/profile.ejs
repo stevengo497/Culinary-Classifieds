@@ -4,7 +4,7 @@
 <% include ./partials/header %>
   <title>Profile</title>
 </head>
-<body>
+<body id="profileBackground">
   <h1></h1>
 <form class="recipeCreate">
     <input id="userIdHidden" type="hidden" class="form-control" value="">
@@ -22,7 +22,7 @@
   <% } %>
   </ul>
 
-  <a id="logout" href="/logout" class="btn btn-default">Log Out</a>
+  <a><button id="logout" href="/logout" class="btn btn-default">Log Out</button></a>
 <% include ./partials/footer %>
 </body>
 </html>

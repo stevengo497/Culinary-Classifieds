@@ -81,13 +81,6 @@ app.post('/profile', function (req, res) {
   })
 })
 
-///****NEW*****
-// app.get('/profile/:id', function (req, res){
-//   db.Recipe.find({_id: req.params.id}, function(err, userRecipes) {
-//     console.log(req.params.id)
-//     res.render('ingredient', {recipes: userRecipes, user_id: req.params.id})
-//   })
-// });
 
 app.post('/profile/ingredient', function (req, res){
   db.Ingredient.create(req.body).then(function(newIngredient){
