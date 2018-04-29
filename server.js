@@ -30,10 +30,8 @@ app.get('/', function (req, res){
 
 // login route with placeholder response
 app.get('/login', function (req, res) {
-  User.find(function(err, userIdLogin){
-    res.render('login', {recipes: userIdLogin});
+  res.render('login');
   })
-
 });
 // signup route with placeholder response
 app.get('/signup', function (req, res) {
@@ -85,12 +83,12 @@ app.post('/profile', function (req, res) {
 })
 
 ///****NEW*****
-app.get('/profile/:id', function (req, res){
-  db.Recipe.find({_id: req.params.id}, function(err, userRecipes) {
-    console.log(req.params.id)
-    res.render('ingredient', {recipes: userRecipes, user_id: req.params.id})
-  })
-});
+// app.get('/profile/:id', function (req, res){
+//   db.Recipe.find({_id: req.params.id}, function(err, userRecipes) {
+//     console.log(req.params.id)
+//     res.render('ingredient', {recipes: userRecipes, user_id: req.params.id})
+//   })
+// });
 
 app.post('/profile/ingredient', function (req, res){
   db.Ingredient.create(req.body).then(function(newIngredient){
