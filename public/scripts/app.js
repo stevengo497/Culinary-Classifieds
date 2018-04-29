@@ -53,7 +53,6 @@ $(document).ready(function(){
       success: function(response){
         ($("ul").append("<li>" + ($('#recipeCreateInput').val() + '<a href="profile/ingredient/' + response._id + '"><button id="' + response._id + '" type="button" class="float-right btn btn-success btn-sm">View Recipe</button></a>') + "</li>"))
         $('#recipeCreateInput').val("");
-        console.log(response._id)
 
       }
     });
@@ -145,7 +144,6 @@ ingredientListener();
 
   $('.deleteRecipeBtn').on("click", function(e){
     e.preventDefault();
-    console.log($(this)[0].id)
 
     $.ajax({
       url: "/profile/"+$(this)[0].id, // right now this is for Update id, need to change to recipe ID (same as url)

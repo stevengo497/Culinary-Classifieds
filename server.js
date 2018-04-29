@@ -20,10 +20,21 @@ app.use(session({
   cookie: { maxAge: 30 * 60 * 1000 } // 30 minute cookie lifespan (in milliseconds)
 }));
 
-mongoose.connect('mongodb://localhost/simple-login');
+mongoose.connect('mongodb://localhost/culinary-classifieds');
 
 
 
+app.get('/', function (req, res){
+  res.render('index', { root: __dirname})
+});
+
+// login route with placeholder response
+app.get('/login', function (req, res) {
+  User.find(function(err, userIdLogin){
+    res.render('login', {recipes: userIdLogin});
+  })
+
+});
 // signup route with placeholder response
 app.get('/signup', function (req, res) {
   res.render('signup');
@@ -51,10 +62,7 @@ app.post("/sessions", function(req, res){
 	})
 })
 
-// login route with placeholder response
-app.get('/login', function (req, res) {
-  res.render('login');
-});
+
 //logout
 app.get('/logout', function (req, res) {
   // remove the session user id
@@ -63,10 +71,6 @@ app.get('/logout', function (req, res) {
   res.redirect('/login');
 });
 
-
-app.get('/', function (req, res){
-  res.render('index', { root: __dirname})
-});
 //*** commented out to see
 app.get('/profile', function (req, res){
   db.Recipe.find(function(err, recipeList) {
@@ -79,6 +83,14 @@ app.post('/profile', function (req, res) {
     res.json(newRecipe);
   })
 })
+
+///****NEW*****
+app.get('/profile/:id', function (req, res){
+  db.Recipe.find({_id: req.params.id}, function(err, userRecipes) {
+    console.log(req.params.id)
+    res.render('ingredient', {recipes: userRecipes, user_id: req.params.id})
+  })
+});
 
 app.post('/profile/ingredient', function (req, res){
   db.Ingredient.create(req.body).then(function(newIngredient){
