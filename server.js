@@ -20,7 +20,7 @@ app.use(session({
   cookie: { maxAge: 30 * 60 * 1000 } // 30 minute cookie lifespan (in milliseconds)
 }));
 
-mongoose.connect('mongodb://localhost/culinary-classifieds');
+
 
 
 
