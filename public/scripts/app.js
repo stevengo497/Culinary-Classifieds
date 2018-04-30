@@ -4,6 +4,16 @@ console.log('Up and running!')
 
 $(document).ready(function(){
 
+  $('#homeLogin').on("click", function(event){
+    event.preventDefault()
+    window.location.href = '/login'
+  })
+
+  $('#homeSignup').on("click", function(event){
+    event.preventDefault()
+    window.location.href = '/signup'
+  })
+
   $("#signup-form").on("submit", function(event){
 
     event.preventDefault();
@@ -18,7 +28,7 @@ $(document).ready(function(){
     method : "POST",
     data : formData,
     success : function(response){
-      $("h1").append(response.email + " is now a user email")
+      $("h2").append(response.email + " is now signed up!")
     }
   })
   })

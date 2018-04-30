@@ -5,6 +5,18 @@ h1 {
   text-shadow: 2px 2px #7E914F;
 }
 
+h2 {
+  text-align: center;
+  font-family: 'Reem Kufi', cursive;
+  font-size: 50px;
+  text-shadow: 2px 2px #7E914F;
+  background-color: white;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5px;
+}
+
 span {
   font-family: 'Reem Kufi', sans-serif;
   font-size: 25px;
@@ -17,11 +29,8 @@ li {
   text-shadow: 2px 2px white;
 }
 
-#cookingInstruction {
-  margin-left: 45%;
-}
-
 #profileBackground {
+  position: relative;
   background-image: url("/images/profile.jpg");
   height: 250px;
   background-position: center;
@@ -30,10 +39,12 @@ li {
 }
 
 #ingredientBackground {
+  position: relative;
   background-image: url("/images/eggs.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  height: 1000px;
 }
 
 #logout {
@@ -55,7 +66,7 @@ li {
 
 .deleteRecipeBtn {
   position: relative;
-  margin-left: 46%;
+  margin-left: 45.5%;
 }
 
 #cookingForm {
@@ -82,6 +93,14 @@ li {
   margin-right: auto;
   width: 25%;
   margin-top: 5%;
+}
+
+#loginBtn {
+  width: 50%;
+}
+
+#signUpBtn {
+  width: 50%;
 }
 
 .recipeCreate {

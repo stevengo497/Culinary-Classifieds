@@ -4,7 +4,8 @@
 <% include ./partials/header %>
   <title>Ingredient</title>
 </head>
-<body id="ingredientBackground">
+<body>
+  <div id="ingredientBackground">
   <h1>What would you like to cook today?</h1>
   <form class="ingredientCreate">
     <input id="recipeIdHidden" type="hidden" class="form-control" value="<%=recipe_id%>">
@@ -48,13 +49,12 @@
         </div>
       </div>
     </div>
+    <button id="<%=recipe_id%>" type="button" class="btn btn-danger deleteRecipeBtn">Delete Recipe</button>
   </div>
 
-  <label id="cookingInstruction" for="exampleFormControlTextarea1">Cooking Instructions</label>
-<textarea id="cookingForm" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-</div>
+
 <% include ./partials/footer %>
-<button id="<%=recipe_id%>" type="button" class="btn btn-danger deleteRecipeBtn">Delete Recipe</button>
+
 
 </body>
 </html>
