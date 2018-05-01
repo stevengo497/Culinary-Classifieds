@@ -48,8 +48,7 @@ $(document).ready(function(){
       data : formData,
       success : function(response){
         window.location = "/profile"
-      },
-      error : console.log('email is not valid')
+      }
     })
   })
 
