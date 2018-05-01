@@ -47,8 +47,9 @@ $(document).ready(function(){
       method : "POST",
       data : formData,
       success : function(response){
-        window.location = "/profile" // might need to redirect -- maybe user? instead of profile
-      }
+        window.location = "/profile"
+      },
+      error : console.log('email is not valid')
     })
   })
 

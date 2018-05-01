@@ -45,12 +45,7 @@ app.post("/signup", function(req, res){
     res.json(newUserDocument)
 	})
 });
-//*** changed from user - maybe needs to change to profile?
-app.get("/user", function(req, res){
-	User.findOne({_id : req.session.userId}, function(err, currentUser){
-		res.render('profile', {user : currentUser})
-	})
-})
+
 //****changed from sessions
 app.post("/sessions", function(req, res){
 	User.authenticate(req.body.email, req.body.password, function(err, existingUserDocument){
