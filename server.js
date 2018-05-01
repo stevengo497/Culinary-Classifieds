@@ -41,6 +41,7 @@ app.get('/signup', function (req, res) {
 app.post("/signup", function(req, res){
 	User.createSecure(req.body.email, req.body.password, function(err, newUserDocument){
     req.session.userId = newUserDocument.id
+    global.globaluser_id = req.session.userId;
     res.json(newUserDocument)
 	})
 });
@@ -55,6 +56,7 @@ app.post("/sessions", function(req, res){
 	User.authenticate(req.body.email, req.body.password, function(err, existingUserDocument){
 		// if (err) console.log("error is " + err)
 		req.session.userId = existingUserDocument._id
+    global.globaluser_id = req.session.userId;
 		res.json(existingUserDocument);
 	})
 })
@@ -70,12 +72,14 @@ app.get('/logout', function (req, res) {
 
 //*** commented out to see
 app.get('/profile', function (req, res){
-  db.Recipe.find(function(err, recipeList) {
+  db.Recipe.find({user_id: globaluser_id}, function(err, recipeList) {
+    //console.log(global.user_id)
     res.render('profile', {recipes: recipeList})
   })
 });
 
 app.post('/profile', function (req, res) {
+  req.body.user_id = globaluser_id
   db.Recipe.create(req.body).then(function(newRecipe){
     res.json(newRecipe);
   })
