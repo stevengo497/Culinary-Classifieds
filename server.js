@@ -54,9 +54,9 @@ app.get("/user", function(req, res){
 //****changed from sessions
 app.post("/sessions", function(req, res){
 	User.authenticate(req.body.email, req.body.password, function(err, existingUserDocument){
-		// if (err) console.log("error is " + err)
+		if (err) console.log("error is " + err)
 		req.session.userId = existingUserDocument._id
-    global.globaluser_id = req.session.userId;
+    global.globaluser_id = req.session.userId; // provides user_id as global so now can use the id in any controller
 		res.json(existingUserDocument);
 	})
 })
